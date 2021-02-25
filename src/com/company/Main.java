@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Main {
 
@@ -17,50 +18,48 @@ public class Main {
         }
     }
 
-    public static int max(int a, int b, int c, int d) {
+    public static int max(int...a) {
 
-        int max = a;
-
-        if (b > max)
-            max = b;
-        if (c > max)
-            max = c;
-        if (d > max)
-            max = d;
-
+        int max = a[0];
+        for (int i=1;i<a.length;i++)
+        {
+            if (a[i] > max) max = a[i];
+        }
         return max;
     }
 
     public static void main(String[] args) {
+        String in;
         int choies=0;
+        JOptionPane.showMessageDialog(null,"WLC in our App");
         do
             {
-                Scanner myObj = new Scanner(System.in);
-                System.out.println("Choose what you want to do.");
-                System.out.println("1- To calculate the greatest common multiple");
-                System.out.println("2- To calculate the largest number(At most 4 number)");
-                System.out.println("3- To exit");
-                choies = myObj.nextInt();
+                in= JOptionPane.showInputDialog(null,"Choose what you want to do."+"\n"+"1- Calculate the greatest common multiple"+"\n"+"2- Calculate the largest number(Unlimited)"+"\n"+"3- Exit"+"\n");
+                choies=Integer.parseInt(in);
                 if(choies==1) {
-                    System.out.println("Enter tow number plz");
-                    int x = myObj.nextInt();
-                    int y = myObj.nextInt();
-                    System.out.println("The GCD is " + GCD(x, y));
+                    String in1=JOptionPane.showInputDialog("Enter the 1est number");
+                            int x=Integer.parseInt(in1);
+                    String in2=JOptionPane.showInputDialog("Enter the 2est number");
+                    int y=Integer.parseInt(in2);
+                    JOptionPane.showMessageDialog(null,"The GCD is " + GCD(x, y));
                 }
                 else if (choies==2) {
-                    System.out.println("Enter four number plz");
-                    int x1 = myObj.nextInt();
-                    int x2 = myObj.nextInt();
-                    int x3 = myObj.nextInt();
-                    int x4 = myObj.nextInt();
-                    System.out.println("The max number is " + max(x1, x2, x3, x4));
+                    String in3=JOptionPane.showInputDialog("Enter the 1est number");
+                    int x1=Integer.parseInt(in3);
+                    String in4=JOptionPane.showInputDialog("Enter the 2est number");
+                    int x2=Integer.parseInt(in4);
+                    String in5=JOptionPane.showInputDialog("Enter the 3est number");
+                    int x3=Integer.parseInt(in5);
+                    String in6=JOptionPane.showInputDialog("Enter the 4est number");
+                    int x4=Integer.parseInt(in6);
+                    JOptionPane.showMessageDialog(null,"The max number is " + max(x1, x2, x3, x4));
                 }
                 else if(choies==3) {
-                    System.out.println("ty for using our app");
+                    JOptionPane.showMessageDialog(null,"TY for using our App");
                     break;
                 }
                 else
-                    System.out.println("404 Not Found");
+                   JOptionPane.showMessageDialog(null,"404 Not Found");
             }
 while (choies!=3);
 
